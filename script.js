@@ -37,7 +37,7 @@
    CONFIG
    ========================================================= */
 
-const API_BASE = "https://sri-kumar-stores-hovt-64kf3ef54-mohanam.vercel.app";
+const API_BASE = "https://sri-kumar-stores-hovt-easl0cjt1-mohanam.vercel.app";
 
 const PRODUCT_KEY = "textel_products";
 const CART_KEY = "textel_cart";
