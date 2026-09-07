@@ -1,0 +1,1860 @@
+/* =====================================================
+   TEXTEL OWNER DASHBOARD
+   owner.css
+===================================================== */
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f5f6f8;
+    color: #172033;
+    min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =====================================================
+   LOGIN PAGE
+===================================================== */
+
+.login-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc 0%,
+            #eef1f5 100%
+        );
+}
+
+.login-box {
+    width: 100%;
+    max-width: 430px;
+
+    background: #ffffff;
+
+    padding: 42px;
+
+    border-radius: 20px;
+
+    border: 1px solid #e4e7ec;
+
+    box-shadow:
+        0 20px 60px rgba(15, 23, 42, 0.10);
+}
+
+.login-logo {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 120px;
+    height: 46px;
+
+    padding: 0 18px;
+
+    border-radius: 10px;
+
+    background: #172033;
+    color: #ffffff;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.login-label {
+    margin-top: 22px;
+
+    color: #687386;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.login-box h1 {
+    margin-top: 7px;
+
+    font-size: 32px;
+    line-height: 1.2;
+
+    color: #172033;
+}
+
+.login-description {
+    margin-top: 9px;
+
+    color: #687386;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   FORM GROUP
+===================================================== */
+
+.form-group {
+    margin-top: 20px;
+}
+
+.form-group label,
+.main-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #263246;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    border: 1px solid #d7dce3;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #172033;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input,
+.form-group select {
+    height: 48px;
+
+    padding: 0 14px;
+}
+
+.form-group textarea {
+    padding: 14px;
+
+    resize: vertical;
+
+    min-height: 120px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9aa3b1;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #172033;
+
+    box-shadow:
+        0 0 0 3px rgba(23, 32, 51, 0.08);
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+.login-btn {
+    width: 100%;
+
+    height: 50px;
+
+    margin-top: 25px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #172033;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.login-btn:hover {
+    background: #0f172a;
+
+    transform: translateY(-1px);
+}
+
+.login-error {
+    min-height: 20px;
+
+    margin-top: 12px;
+
+    color: #dc2626;
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+.back-home {
+    display: block;
+
+    margin-top: 24px;
+
+    color: #687386;
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+.back-home:hover {
+    color: #172033;
+}
+
+
+/* =====================================================
+   DASHBOARD LAYOUT
+===================================================== */
+
+.dashboard-page {
+    min-height: 100vh;
+
+    background: #f5f6f8;
+
+    display: flex;
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: 250px;
+
+    padding: 30px 18px;
+
+    background: #172033;
+    color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 100;
+}
+
+.sidebar-logo {
+    padding: 0 12px;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+.sidebar-label {
+    padding: 7px 12px 25px;
+
+    color: #9ca7b8;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.sidebar-nav {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.sidebar-nav a,
+.sidebar-bottom a {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 45px;
+
+    padding: 0 13px;
+
+    border-radius: 9px;
+
+    color: #c8cfda;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.sidebar-nav a:hover,
+.sidebar-bottom a:hover {
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #ffffff;
+}
+
+.sidebar-nav a.active {
+    background: #ffffff;
+
+    color: #172033;
+
+    font-weight: 700;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.logout-btn {
+    width: 100%;
+
+    min-height: 45px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #c8cfda;
+
+    text-align: left;
+
+    padding: 0 13px;
+
+    font-size: 14px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: rgba(220, 38, 38, 0.12);
+
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.dashboard-main {
+    width: calc(100% - 250px);
+
+    margin-left: 250px;
+
+    padding: 35px;
+
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   DASHBOARD HEADER
+===================================================== */
+
+.dashboard-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+.dashboard-small-title {
+    color: #8a94a4;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.dashboard-header h1 {
+    margin-top: 5px;
+
+    font-size: 30px;
+
+    color: #172033;
+}
+
+.owner-profile {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+}
+
+.owner-avatar {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #172033;
+
+    color: #ffffff;
+
+    font-weight: 700;
+}
+
+.owner-profile strong {
+    display: block;
+
+    font-size: 14px;
+}
+
+.owner-profile span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #7b8493;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    min-height: 125px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #e4e7ec;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.04);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #f1f3f6;
+
+    font-size: 22px;
+}
+
+.stat-card p {
+    color: #7b8493;
+
+    font-size: 13px;
+}
+
+.stat-card h2 {
+    margin-top: 6px;
+
+    font-size: 27px;
+
+    color: #172033;
+}
+
+
+/* =====================================================
+   DASHBOARD SECTION
+===================================================== */
+
+.dashboard-section {
+    margin-bottom: 30px;
+
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #e4e7ec;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.035);
+}
+
+.section-title {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.section-title p,
+.stock-title p {
+    color: #8a94a4;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+}
+
+.section-title h2 {
+    margin-top: 5px;
+
+    font-size: 22px;
+
+    color: #172033;
+}
+
+.section-title > span {
+    color: #687386;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   PRODUCT FORM
+===================================================== */
+
+#productForm {
+    width: 100%;
+}
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 0 20px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+
+/* =====================================================
+   PRODUCT PHOTO UPLOAD
+===================================================== */
+
+.photo-upload-section {
+    width: 100%;
+
+    margin-bottom: 28px;
+}
+
+.photo-upload-box {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 260px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border: 2px dashed #c4cad4;
+
+    border-radius: 14px;
+
+    background: #fafbfc;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.photo-upload-box:hover {
+    border-color: #172033;
+
+    background: #f5f7f9;
+}
+
+.photo-upload-box:active {
+    transform: scale(0.995);
+}
+
+.photo-upload-box > p {
+    margin-top: 12px;
+
+    color: #7b8493;
+
+    font-size: 13px;
+}
+
+.photo-upload-box > span {
+    margin-top: 5px;
+
+    color: #536273;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   IMAGE UPLOAD INPUT
+===================================================== */
+
+.product-image-input {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+
+/* =====================================================
+   UPLOAD BUTTON
+===================================================== */
+
+.choose-image-btn {
+    position: relative;
+
+    z-index: 20;
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 14px 22px;
+
+    background: #172033;
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.choose-image-btn:hover {
+    opacity: 0.9;
+}
+
+
+/* =====================================================
+   UPLOAD PLACEHOLDER
+===================================================== */
+
+.upload-placeholder {
+    position: relative;
+
+    z-index: 2;
+
+    padding: 30px;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+.upload-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 14px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eef1f5;
+
+    font-size: 25px;
+}
+
+.upload-placeholder h3 {
+    color: #172033;
+
+    font-size: 17px;
+
+    margin-bottom: 6px;
+}
+
+.upload-placeholder p {
+    color: #7b8493;
+
+    font-size: 13px;
+
+    margin-bottom: 6px;
+}
+
+.upload-placeholder span {
+    color: #536273;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   IMAGE PREVIEW
+===================================================== */
+
+.image-preview {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    object-fit: contain;
+
+    padding: 12px;
+
+    background: #ffffff;
+
+    z-index: 15;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   STOCK SECTION
+===================================================== */
+
+.stock-section {
+    margin-top: 28px;
+
+    padding: 22px;
+
+    border: 1px solid #e1e5eb;
+
+    border-radius: 14px;
+
+    background: #fafbfc;
+}
+
+
+/*
+   IMPORTANT:
+
+   owner.js / inline JavaScript will set:
+
+   stockSection.style.display = "none";
+
+   when Category = Sarees.
+
+   Therefore Sarees will not show:
+   XS, S, M, L, XL, XXL
+   Baby sizes
+   Kids sizes
+
+   Other categories continue normally.
+*/
+
+.stock-section.saree-hidden {
+    display: none !important;
+}
+
+
+.stock-title {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+.stock-title h3 {
+    margin-top: 5px;
+
+    font-size: 18px;
+
+    color: #172033;
+}
+
+.stock-title > span {
+    color: #8992a1;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   SIZE STOCK GRID
+===================================================== */
+
+.size-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(100px, 1fr));
+
+    gap: 14px;
+}
+
+.size-stock {
+    padding: 12px;
+
+    background: #ffffff;
+
+    border: 1px solid #e0e4ea;
+
+    border-radius: 10px;
+}
+
+.size-stock label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #354052;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.size-stock input {
+    width: 100%;
+
+    height: 42px;
+
+    padding: 0 10px;
+
+    border: 1px solid #d5dae2;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #172033;
+
+    outline: none;
+}
+
+.size-stock input:focus {
+    border-color: #172033;
+
+    box-shadow:
+        0 0 0 3px rgba(23, 32, 51, 0.07);
+}
+
+.size-stock input::-webkit-inner-spin-button,
+.size-stock input::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   FORM ACTIONS
+===================================================== */
+
+.form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #e7e9ed;
+}
+
+.cancel-btn,
+.publish-btn {
+    min-width: 130px;
+
+    height: 46px;
+
+    padding: 0 20px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.cancel-btn {
+    border: 1px solid #d7dce3;
+
+    background: #ffffff;
+
+    color: #536273;
+}
+
+.cancel-btn:hover {
+    background: #f5f6f8;
+
+    color: #172033;
+}
+
+.publish-btn {
+    border: none;
+
+    background: #172033;
+
+    color: #ffffff;
+}
+
+.publish-btn:hover {
+    background: #0f172a;
+}
+
+
+/* =====================================================
+   PRODUCT MESSAGE
+===================================================== */
+
+.product-message {
+    min-height: 22px;
+
+    margin-top: 15px;
+
+    font-size: 13px;
+
+    text-align: right;
+}
+
+
+/* =====================================================
+   OWNER PRODUCT LIST
+===================================================== */
+
+.owner-product-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.owner-product-card {
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #e1e5eb;
+
+    border-radius: 14px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.owner-product-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.owner-product-image {
+    width: 100%;
+
+    height: 230px;
+
+    display: block;
+
+    object-fit: cover;
+
+    background: #f2f4f7;
+}
+
+.owner-product-info {
+    padding: 17px;
+}
+
+.owner-product-info h3 {
+    color: #172033;
+
+    font-size: 16px;
+
+    line-height: 1.4;
+}
+
+.owner-product-category {
+    margin-top: 6px;
+
+    color: #7b8493;
+
+    font-size: 12px;
+}
+
+.owner-product-price {
+    margin-top: 10px;
+
+    color: #172033;
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+.owner-product-stock {
+    margin-top: 8px;
+
+    color: #687386;
+
+    font-size: 12px;
+}
+
+.owner-product-stock strong {
+    color: #172033;
+}
+
+
+/* =====================================================
+   PRODUCT ACTIONS
+===================================================== */
+
+.owner-product-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 15px;
+
+    padding-top: 14px;
+
+    border-top: 1px solid #edf0f3;
+}
+
+.product-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.edit-product-btn,
+.delete-product-btn {
+    border: none;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+.edit-product-btn {
+    background: #eef4ff;
+
+    color: #2563eb;
+}
+
+.delete-product-btn {
+    background: #fff0f0;
+
+    color: #dc2626;
+}
+
+
+/* =====================================================
+   DELETE BUTTON
+===================================================== */
+
+.delete-btn {
+    min-height: 36px;
+
+    padding: 0 13px;
+
+    border: 1px solid #fecaca;
+
+    border-radius: 8px;
+
+    background: #fff7f7;
+
+    color: #dc2626;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.delete-btn:hover {
+    background: #fee2e2;
+}
+
+
+/* =====================================================
+   OUT OF STOCK
+===================================================== */
+
+.owner-out-stock {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 6px 10px;
+
+    border-radius: 6px;
+
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   EMPTY PRODUCTS
+===================================================== */
+
+.empty-products {
+    width: 100%;
+
+    padding: 55px 20px;
+
+    border: 1px dashed #d5dae2;
+
+    border-radius: 13px;
+
+    background: #fafbfc;
+
+    text-align: center;
+}
+
+.empty-icon {
+    font-size: 35px;
+
+    margin-bottom: 12px;
+}
+
+.empty-products h3 {
+    color: #354052;
+
+    font-size: 17px;
+}
+
+.empty-products p {
+    margin-top: 7px;
+
+    color: #8992a1;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .owner-product-list {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .size-grid {
+        grid-template-columns:
+            repeat(4, minmax(90px, 1fr));
+    }
+
+}
+
+
+/* =====================================================
+   SMALL LAPTOP
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 215px;
+    }
+
+    .dashboard-main {
+        width: calc(100% - 215px);
+
+        margin-left: 215px;
+
+        padding: 25px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .owner-product-list {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .login-page {
+        padding: 18px;
+    }
+
+    .login-box {
+        padding: 28px 22px;
+
+        border-radius: 15px;
+    }
+
+    .login-box h1 {
+        font-size: 27px;
+    }
+
+
+    /* ---------------------------------------------
+       SIDEBAR
+    --------------------------------------------- */
+
+    .dashboard-page {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        min-height: auto;
+
+        padding: 18px;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        gap: 15px;
+    }
+
+    .sidebar-logo {
+        padding: 0;
+
+        font-size: 20px;
+    }
+
+    .sidebar-label {
+        display: none;
+    }
+
+    .sidebar-nav {
+        display: none;
+    }
+
+    .sidebar-bottom {
+        margin-left: auto;
+
+        flex-direction: row;
+
+        gap: 5px;
+    }
+
+    .sidebar-bottom a {
+        display: none;
+    }
+
+    .logout-btn {
+        width: auto;
+
+        min-height: 38px;
+
+        padding: 0 11px;
+
+        font-size: 12px;
+    }
+
+
+    /* ---------------------------------------------
+       MAIN
+    --------------------------------------------- */
+
+    .dashboard-main {
+        width: 100%;
+
+        margin-left: 0;
+
+        padding: 20px 15px;
+    }
+
+    .dashboard-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        margin-bottom: 22px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 26px;
+    }
+
+    .owner-profile {
+        align-self: stretch;
+    }
+
+
+    /* ---------------------------------------------
+       STATS
+    --------------------------------------------- */
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+    }
+
+    .stat-card {
+        min-height: 100px;
+
+        padding: 15px;
+
+        gap: 10px;
+    }
+
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 18px;
+    }
+
+    .stat-card p {
+        font-size: 11px;
+    }
+
+    .stat-card h2 {
+        font-size: 22px;
+    }
+
+
+    /* ---------------------------------------------
+       SECTION
+    --------------------------------------------- */
+
+    .dashboard-section {
+        padding: 18px;
+
+        border-radius: 13px;
+    }
+
+    .section-title {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .section-title h2 {
+        font-size: 20px;
+    }
+
+
+    /* ---------------------------------------------
+       IMAGE
+    --------------------------------------------- */
+
+    .photo-upload-box {
+        min-height: 220px;
+    }
+
+    .image-preview {
+        padding: 8px;
+    }
+
+
+    /* ---------------------------------------------
+       STOCK
+    --------------------------------------------- */
+
+    .stock-section {
+        padding: 16px;
+    }
+
+    .stock-title {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+    .size-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+    }
+
+
+    /* ---------------------------------------------
+       PRODUCTS
+    --------------------------------------------- */
+
+    .owner-product-list {
+        grid-template-columns: 1fr;
+    }
+
+    .owner-product-image {
+        height: 250px;
+    }
+
+
+    /* ---------------------------------------------
+       BUTTONS
+    --------------------------------------------- */
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .cancel-btn,
+    .publish-btn {
+        width: 100%;
+    }
+
+    .product-message {
+        text-align: left;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 420px) {
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .size-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .dashboard-main {
+        padding: 15px 10px;
+    }
+
+    .dashboard-section {
+        padding: 15px;
+    }
+
+    .sidebar {
+        padding: 15px 12px;
+    }
+
+    .owner-profile {
+        padding-top: 5px;
+    }
+
+}
+
+/* =====================================================
+   CUSTOMER CONTACT MESSAGES
+===================================================== */
+
+.contact-messages-list {
+    display: grid;
+    gap: 16px;
+}
+
+.contact-message-card {
+    background: #ffffff;
+    border: 1px solid #e4e7ec;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.05);
+}
+
+.contact-message-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.contact-message-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #172033;
+}
+
+.contact-message-meta {
+    margin-top: 4px;
+    color: #687386;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.contact-message-body {
+    margin-top: 14px;
+    padding: 14px;
+    background: #f7f8fa;
+    border-radius: 10px;
+    color: #263246;
+    font-size: 14px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+
+.remove-message-btn {
+    border: 1px solid #f0caca;
+    background: #fff5f5;
+    color: #c62828;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.remove-message-btn:hover {
+    background: #c62828;
+    color: #ffffff;
+}
+
+@media (max-width: 700px) {
+    .contact-message-top {
+        flex-direction: column;
+    }
+}
+
+
+/* =====================================================
+   STORE POSTS / ADS
+===================================================== */
+.post-form {
+    background: #fff;
+    border: 1px solid #e4e7ec;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 28px;
+}
+
+.post-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 18px;
+}
+
+.post-form .form-group {
+    margin-bottom: 18px;
+}
+
+.post-form label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #344054;
+}
+
+.post-form input, .post-form select, .post-form textarea {
+    width: 100%;
+    border: 1px solid #d9dee7;
+    border-radius: 8px;
+    padding: 12px 13px;
+    outline: none;
+    background: #fff;
+}
+
+.post-form textarea { resize: vertical; }
+.post-video-help { display:block; margin-top:7px; color:#8a94a6; font-size:12px; line-height:1.5; }
+.post-form input[type="file"] { padding:12px; background:#fff; }
+.post-form input:focus, .post-form select:focus, .post-form textarea:focus { border-color: #777; }
+
+.post-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    align-items: center;
+}
+
+.post-list-title { margin-top: 28px; }
+.owner-post-list { display: grid; gap: 14px; }
+.owner-post-card {
+    background: #fff;
+    border: 1px solid #e4e7ec;
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+.owner-post-card h3 { margin: 7px 0 5px; color: #172033; }
+.owner-post-card p { color: #596579; line-height: 1.6; white-space: pre-wrap; }
+.owner-post-card small { display: block; margin-top: 8px; color: #8a94a6; }
+.post-live-badge {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    padding: 4px 7px;
+    border-radius: 20px;
+    background: #eef8f0;
+    color: #287a3d;
+}
+
+@media (max-width: 700px) {
+    .post-form-grid { grid-template-columns: 1fr; }
+    .post-form-actions { flex-direction: column-reverse; align-items: stretch; }
+    .post-form-actions button { width: 100%; }
+    .owner-post-card { flex-direction: column; }
+    .owner-post-card .post-delete-btn { align-self: flex-end; }
+}
+
+
+/* =====================================================
+   CUSTOMER ORDERS (FROM CHECKOUT)
+===================================================== */
+
+.order-card {
+    background: #ffffff;
+    border: 1px solid #e4e7ec;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.05);
+    margin-bottom: 16px;
+}
+
+.order-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    flex-wrap: wrap;
+    border-bottom: 1px dashed #e4e7ec;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+}
+
+.order-id-badge {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #8a5a00;
+    background: #fff6e0;
+    border: 1px solid #f0dca0;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.order-card-meta {
+    margin-top: 6px;
+    color: #687386;
+    font-size: 13px;
+}
+
+.order-items-list {
+    display: grid;
+    gap: 10px;
+}
+
+.order-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: #f7f8fa;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #263246;
+}
+
+.order-item-row span.order-item-qty {
+    color: #687386;
+    font-size: 12px;
+}
+
+.order-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.order-total-text {
+    font-weight: 800;
+    color: #172033;
+    font-size: 15px;
+}
+
+.remove-order-btn {
+    border: 1px solid #f0caca;
+    background: #fff5f5;
+    color: #c62828;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.remove-order-btn:hover {
+    background: #c62828;
+    color: #ffffff;
+}
+
+@media (max-width: 700px) {
+    .order-card-top { flex-direction: column; }
+}
