@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // CONFIG
     // =========================================================
 
-    const API_BASE = "http://127.0.0.1:5000";
+    const API_BASE = "https://sri-kumar-stores-hovt-64kf3ef54-mohanam.vercel.app";
 
     const PRODUCTS_API =
         `${API_BASE}/api/products`;
