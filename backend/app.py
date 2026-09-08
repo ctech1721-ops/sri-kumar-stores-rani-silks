@@ -2,7 +2,7 @@ import os
 import uuid
 from datetime import datetime
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
@@ -24,6 +24,9 @@ load_dotenv(
 # =========================================================
 
 app = Flask(__name__)
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+app.config["BASE_DIR"] = BASE_DIR
 
 
 # =========================================================
@@ -339,11 +342,19 @@ class ContactMessage(db.Model):
 
 @app.route("/")
 def home():
+    return send_from_directory(BASE_DIR, "index.html")
+@app.route("/<path:path>")
+def serve_frontend(path):
+    file_path = os.path.join(BASE_DIR, path)
+
+    if os.path.isfile(file_path):
+        return send_from_directory(BASE_DIR, path)
 
     return jsonify({
-        "success": True,
-        "message": "Sri Kumar Stores API is running"
-    })
+        "success": False,
+        "message": "File not found"
+    }), 404
+    
 
 
 @app.route("/api/test", methods=["GET"])
