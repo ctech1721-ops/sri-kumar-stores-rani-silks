@@ -37,7 +37,7 @@
    CONFIG
    ========================================================= */
 
-const API_BASE = "https://sri-kumar-stores-hovt-easl0cjt1-mohanam.vercel.app";
+ const API_BASE = "http://127.0.0.1:5000";
 
 const PRODUCT_KEY = "textel_products";
 const CART_KEY = "textel_cart";
@@ -1074,223 +1074,6 @@ function renderProducts(
         ).join("");
 }
 
-
-/* =========================================================
-   FILTER PRODUCTS
-   ========================================================= */
-
-function getFilteredProductsWithoutRender() {
-
-    let filtered =
-        [...getProducts()];
-
-    const searchInput =
-        document.getElementById(
-            "productSearch"
-        );
-
-    const categoryFilter =
-        document.getElementById(
-            "categoryFilter"
-        );
-
-    const sortFilter =
-        document.getElementById(
-            "sortFilter"
-        );
-
-    const priceRangeFilter =
-        document.getElementById(
-            "priceRangeFilter"
-        );
-
-
-    const search =
-        searchInput
-            ? searchInput.value
-                .trim()
-                .toLowerCase()
-            : "";
-
-    const category =
-        categoryFilter
-            ? categoryFilter.value
-            : "";
-
-    const sort =
-        sortFilter
-            ? sortFilter.value
-            : "";
-
-    const priceRange =
-        priceRangeFilter
-            ? priceRangeFilter.value
-            : "";
-
-
-    /* SEARCH */
-
-    if (search) {
-
-        filtered =
-            filtered.filter(
-                product => {
-
-                    const text = `
-                        ${product.name}
-                        ${product.category}
-                        ${product.description}
-                        ${product.code}
-                    `.toLowerCase();
-
-                    return text.includes(
-                        search
-                    );
-                }
-            );
-    }
-
-
-    /* CATEGORY */
-
-    if (
-        category &&
-        category !== "all"
-    ) {
-
-        filtered =
-            filtered.filter(
-                product =>
-                    String(
-                        product.category
-                    ).toLowerCase() ===
-                    String(
-                        category
-                    ).toLowerCase()
-            );
-    }
-
-
-    /* PRICE */
-
-    if (priceRange) {
-
-        filtered =
-            filtered.filter(
-                product => {
-
-                    const price =
-                        safeNumber(
-                            product.price
-                        );
-
-                    if (
-                        priceRange.includes("+")
-                    ) {
-
-                        const min =
-                            safeNumber(
-                                priceRange.replace(
-                                    "+",
-                                    ""
-                                )
-                            );
-
-                        return price >= min;
-                    }
-
-                    const parts =
-                        priceRange.split("-");
-
-                    if (
-                        parts.length === 2
-                    ) {
-
-                        const min =
-                            safeNumber(
-                                parts[0]
-                            );
-
-                        const max =
-                            safeNumber(
-                                parts[1]
-                            );
-
-                        return (
-                            price >= min &&
-                            price <= max
-                        );
-                    }
-
-                    return true;
-                }
-            );
-    }
-
-
-    /* SORT */
-
-    if (
-        sort === "low-high"
-    ) {
-
-        filtered.sort(
-            (a, b) =>
-                safeNumber(a.price) -
-                safeNumber(b.price)
-        );
-
-    } else if (
-        sort === "high-low"
-    ) {
-
-        filtered.sort(
-            (a, b) =>
-                safeNumber(b.price) -
-                safeNumber(a.price)
-        );
-
-    } else if (
-        sort === "newest"
-    ) {
-
-        filtered.sort(
-            (a, b) =>
-                getDateValue(
-                    b.created_at
-                ) -
-                getDateValue(
-                    a.created_at
-                )
-        );
-
-    } else if (
-        sort === "oldest"
-    ) {
-
-        filtered.sort(
-            (a, b) =>
-                getDateValue(
-                    a.created_at
-                ) -
-                getDateValue(
-                    b.created_at
-                )
-        );
-    }
-
-    return filtered;
-}
-
-
-function filterProducts() {
-
-    renderProducts(
-        getFilteredProductsWithoutRender()
-    );
-}
-
-
 /* =========================================================
    SEARCH
    ========================================================= */
@@ -1322,46 +1105,319 @@ function setupSearch() {
     );
 }
 
+function filterProducts() {
+    const products = getProducts();
 
-/* =========================================================
-   FILTERS
-   ========================================================= */
+    const categoryFilter = document.getElementById("categoryFilter");
+    const sortFilter = document.getElementById("sortFilter");
+    const priceRangeFilter = document.getElementById("priceRangeFilter");
+    const searchInput = document.getElementById("productSearch");
+
+    // SEARCH
+    const searchTerm = searchInput
+        ? searchInput.value.trim().toLowerCase()
+        : "";
+
+    // CATEGORY
+    const selectedCategory = categoryFilter
+        ? categoryFilter.value
+        : "all";
+
+    // PRICE
+    const maxPrice = priceRangeFilter
+        ? Number(priceRangeFilter.value)
+        : Infinity;
+
+    // FABRIC
+    const selectedFabric =
+        [...document.querySelectorAll(
+            '.filter-group input[type="checkbox"]'
+        )]
+        .filter(input =>
+            input.checked &&
+            ["Cotton", "Silk", "Linen"].includes(input.value)
+        )
+        .map(input => input.value.toLowerCase());
+
+    // OCCASION
+    const selectedOccasion =
+        [...document.querySelectorAll(
+            '.filter-group input[type="checkbox"]'
+        )]
+        .filter(input =>
+            input.checked &&
+            ["Wedding", "Festive", "Casual"].includes(input.value)
+        )
+        .map(input => input.value.toLowerCase());
+
+    // COLOR
+    const selectedColors =
+        [...document.querySelectorAll(".color-swatch.active")]
+        .map(button =>
+            (button.title || "").toLowerCase()
+        );
+
+    let filteredProducts = products.filter(product => {
+
+        const text = `
+            ${product.name || ""}
+            ${product.category || ""}
+            ${product.sub_category || ""}
+            ${product.description || ""}
+            ${product.fabric || ""}
+            ${product.color || ""}
+            ${product.occasion || ""}
+        `.toLowerCase();
+
+        // SEARCH FILTER
+        if (
+            searchTerm &&
+            !text.includes(searchTerm)
+        ) {
+            return false;
+        }
+
+        // CATEGORY FILTER
+        if (
+            selectedCategory &&
+            selectedCategory !== "all" &&
+            selectedCategory !== "default" &&
+            product.category !== selectedCategory
+        ) {
+            return false;
+        }
+
+        // PRICE FILTER
+        const price = Number(product.price || 0);
+
+        if (price > maxPrice) {
+            return false;
+        }
+
+        // FABRIC FILTER
+        if (
+            selectedFabric.length > 0 &&
+            !selectedFabric.some(fabric =>
+                text.includes(fabric)
+            )
+        ) {
+            return false;
+        }
+
+        // OCCASION FILTER
+        if (
+            selectedOccasion.length > 0 &&
+            !selectedOccasion.some(occasion =>
+                text.includes(occasion)
+            )
+        ) {
+            return false;
+        }
+
+        // COLOR FILTER
+        if (
+            selectedColors.length > 0 &&
+            !selectedColors.some(color =>
+                text.includes(color)
+            )
+        ) {
+            return false;
+        }
+
+        return true;
+    });
+
+    // SORT
+    const sortValue = sortFilter
+        ? sortFilter.value
+        : "default";
+
+    if (sortValue === "low") {
+
+        filteredProducts.sort(
+            (a, b) =>
+                Number(a.price || 0) -
+                Number(b.price || 0)
+        );
+
+    } else if (sortValue === "high") {
+
+        filteredProducts.sort(
+            (a, b) =>
+                Number(b.price || 0) -
+                Number(a.price || 0)
+        );
+
+    } else if (sortValue === "new") {
+
+        filteredProducts.sort(
+            (a, b) =>
+                new Date(
+                    b.created_at ||
+                    b.createdAt ||
+                    0
+                ) -
+                new Date(
+                    a.created_at ||
+                    a.createdAt ||
+                    0
+                )
+        );
+    }
+
+    // PRICE LABEL
+    const priceLabel =
+        document.getElementById("priceRangeValue");
+
+    if (
+        priceLabel &&
+        priceRangeFilter
+    ) {
+        priceLabel.textContent =
+            "₹" +
+            Number(
+                priceRangeFilter.value
+            ).toLocaleString("en-IN");
+    }
+
+    // RENDER
+    renderProducts(filteredProducts);
+}
+
+/* =========================
+   FILTER EVENT SETUP
+========================= */
 
 function setupFilters() {
 
-    [
+    const filterIds = [
         "categoryFilter",
         "sortFilter",
         "priceRangeFilter"
-    ].forEach(id => {
+    ];
+
+    filterIds.forEach(id => {
 
         const element =
-            document.getElementById(
-                id
-            );
+            document.getElementById(id);
 
-        if (!element) {
+        if (!element) return;
+
+        if (element.dataset.filterConnected === "true") {
             return;
         }
 
-        if (
-            element.dataset.connected ===
-            "true"
-        ) {
-            return;
-        }
-
-        element.dataset.connected =
-            "true";
+        element.dataset.filterConnected = "true";
 
         element.addEventListener(
             "change",
             filterProducts
         );
+
+        if (id === "priceRangeFilter") {
+
+            element.addEventListener(
+                "input",
+                filterProducts
+            );
+        }
     });
+
+
+    /* FABRIC + OCCASION CHECKBOXES */
+
+    document
+        .querySelectorAll(
+            '.filter-group input[type="checkbox"]'
+        )
+        .forEach(checkbox => {
+
+            if (
+                checkbox.dataset.filterConnected === "true"
+            ) {
+                return;
+            }
+
+            checkbox.dataset.filterConnected = "true";
+
+            checkbox.addEventListener(
+                "change",
+                filterProducts
+            );
+        });
+
+
+    /* COLOR SWATCHES */
+
+    document
+        .querySelectorAll(".color-swatch")
+        .forEach(button => {
+
+            if (
+                button.dataset.filterConnected === "true"
+            ) {
+                return;
+            }
+
+            button.dataset.filterConnected = "true";
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    button.classList.toggle("active");
+
+                    filterProducts();
+                }
+            );
+        });
 }
 
 
+/* =========================
+   FILTERED PRODUCTS HELPER
+========================= */
+
+function getFilteredProductsWithoutRender() {
+
+    const products = getProducts();
+
+    const categoryFilter =
+        document.getElementById("categoryFilter");
+
+    const priceRangeFilter =
+        document.getElementById("priceRangeFilter");
+
+    const selectedCategory =
+        categoryFilter
+            ? categoryFilter.value
+            : "all";
+
+    const maxPrice =
+        priceRangeFilter
+            ? Number(priceRangeFilter.value)
+            : Infinity;
+
+    return products.filter(product => {
+
+        if (
+            selectedCategory &&
+            selectedCategory !== "all" &&
+            selectedCategory !== "default" &&
+            product.category !== selectedCategory
+        ) {
+            return false;
+        }
+
+        if (
+            Number(product.price || 0) > maxPrice
+        ) {
+            return false;
+        }
+
+        return true;
+    });
+}
 /* =========================================================
    CATEGORY NAVIGATION
    ========================================================= */
