@@ -1858,3 +1858,19 @@ a {
 @media (max-width: 700px) {
     .order-card-top { flex-direction: column; }
 }
+
+/* MOBILE PRODUCT GRID - FIRST 2 CARDS / THEN 3 CARDS */
+
+@media (max-width: 768px) {
+
+    .shop-layout .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    /* First two products */
+    .shop-layout .product-grid .product-card:nth-child(1),
+    .shop-layout .product-grid .product-card:nth-child(2) {
+        grid-column: span 1;
+    }
+
+}
