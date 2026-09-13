@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Sri Kumar Stores & Rani Silks - Owner Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="owner.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         LOGIN PAGE
+    ====================================================== -->
+
+    <section
+        id="loginPage"
+        class="login-page"
+    >
+
+        <div class="login-box">
+
+            <div class="login-logo">
+                Sri Kumar Stores & Rani Silks
+            </div>
+
+            <p class="login-label">
+                OWNER PANEL
+            </p>
+
+            <h1>
+                Welcome Back
+            </h1>
+
+            <p class="login-description">
+                Login to manage your textile products.
+            </p>
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label for="ownerUsername">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="ownerUsername"
+                        placeholder="Enter username"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="ownerPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="ownerPassword"
+                        placeholder="Enter password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="login-btn"
+                >
+                    Login
+                </button>
+
+
+                <p
+                    id="loginError"
+                    class="login-error"
+                ></p>
+
+            </form>
+
+
+            <a
+                href="index.html"
+                class="back-home"
+            >
+                ← Back to Store
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         OWNER DASHBOARD
+    ====================================================== -->
+
+    <section
+        id="dashboardPage"
+        class="dashboard-page"
+        style="display: none;"
+    >
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+
+            <div class="sidebar-logo">
+                Sri Kumar Stores & Rani Silks
+            </div>
+
+
+            <p class="sidebar-label">
+                OWNER PANEL
+            </p>
+
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="#dashboard"
+                    class="active"
+                >
+                    🏠 Dashboard
+                </a>
+
+
+                <a href="#addProduct">
+                    ➕ Add Product
+                </a>
+
+
+                <a href="#products">
+                    📦 Products
+                </a>
+
+                <a href="#posts">
+                    📣 Posts / Ads
+                </a>
+
+                <a href="#orders">
+                    🧾 Orders
+                </a>
+
+                <a href="#messages">
+                    ✉️ Messages
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+
+                <a
+                    href="index.html"
+                    target="_blank"
+                >
+                    🛍 View Store
+                </a>
+
+
+                <button
+                    type="button"
+                    id="logoutBtn"
+                    class="logout-btn"
+                >
+                    🚪 Logout
+                </button>
+
+            </div>
+
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="dashboard-main">
+
+
+            <!-- =================================================
+                 HEADER
+            ================================================== -->
+
+            <header class="dashboard-header">
+
+
+                <div>
+
+                    <p class="dashboard-small-title">
+                        SRI KUMAR STORES ADMIN
+                    </p>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                </div>
+
+
+                <div class="owner-profile">
+
+                    <div class="owner-avatar">
+                        O
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            Owner
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </header>
+
+
+
+            <!-- =================================================
+                 STATISTICS
+            ================================================== -->
+
+            <section
+                id="dashboard"
+                class="stats-grid"
+            >
+
+
+                <!-- TOTAL PRODUCTS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📦
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Total Products
+                        </p>
+
+                        <h2 id="totalProducts">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- WOMEN -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👗
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Women
+                        </p>
+
+                        <h2 id="womenProducts">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MEN -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👔
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Men
+                        </p>
+
+                        <h2 id="menProducts">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- KIDS & BABY -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🧒
+                    </div>
+
+                    <div>
+
+                        <p>
+                            Kids & Baby
+                        </p>
+
+                        <h2 id="kidsBabyProducts">
+                            0
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ADD PRODUCT
+            ================================================== -->
+
+            <section
+                id="addProduct"
+                class="dashboard-section"
+            >
+
+
+                <div class="section-title">
+
+                    <div>
+
+                        <p>
+                            PRODUCT MANAGEMENT
+                        </p>
+
+                        <h2>
+                            Add New Product
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PRODUCT FORM
+                ================================================== -->
+
+                <form id="productForm">
+
+
+                    <!-- =================================================
+                         PRODUCT PHOTO
+                    ================================================== -->
+
+                    <div class="photo-upload-section">
+
+                        <label class="main-label">
+                            Product Photo *
+                        </label>
+
+
+                        <input
+                            type="file"
+                            id="productImage"
+                            accept=".jpg,.jpeg,.png,.webp"
+                            style="display:none;"
+                        >
+
+
+                        <div
+                            id="photoUploadBox"
+                            class="photo-upload-box"
+                        >
+
+                            <button
+                                type="button"
+                                id="chooseImageBtn"
+                                class="choose-image-btn"
+                            >
+                                📷 Upload Product Image
+                            </button>
+
+                            <p>
+                                PNG, JPG or WEBP
+                            </p>
+
+                            <span>
+                                Click to choose image
+                            </span>
+
+
+                            <img
+                                id="imagePreview"
+                                class="image-preview"
+                                alt="Product Preview"
+                            >
+
+                        </div>
+
+
+                        <div
+                            id="uploadPlaceholder"
+                            style="display:none;"
+                        ></div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         BASIC PRODUCT DETAILS
+                    ================================================== -->
+
+                    <div class="form-grid">
+
+
+                        <!-- PRODUCT NAME -->
+
+                        <div class="form-group">
+
+                            <label for="productName">
+                                Product Name *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="productName"
+                                placeholder="Example: Premium Cotton Shirt"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- CATEGORY -->
+
+                        <div class="form-group">
+
+                            <label for="productCategory">
+                                Category *
+                            </label>
+
+                            <select
+                                id="productCategory"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Category
+                                </option>
+
+                                <option value="Women">
+                                    Women
+                                </option>
+
+                                <option value="Men">
+                                    Men
+                                </option>
+
+                                <option value="Kids">
+                                    Kids
+                                </option>
+
+                                <option value="Baby">
+                                    Baby
+                                </option>
+
+                                <!-- NEW SAREES CATEGORY -->
+
+                                <option value="Sarees">
+                                    Sarees
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- PRICE -->
+
+                        <div class="form-group">
+
+                            <label for="productPrice">
+                                Price (₹) *
+                            </label>
+
+                            <input
+                                type="number"
+                                id="productPrice"
+                                min="1"
+                                step="1"
+                                placeholder="Example: 1299"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- PRODUCT CODE -->
+
+                        <div class="form-group">
+
+                            <label for="productCode">
+                                Product Code
+                            </label>
+
+                            <input
+                                type="text"
+                                id="productCode"
+                                placeholder="Example: TXT-001"
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         DESCRIPTION
+                    ================================================== -->
+
+                    <div class="form-group full-width">
+
+                        <label for="productDescription">
+                            Product Description *
+                        </label>
+
+                        <textarea
+                            id="productDescription"
+                            rows="5"
+                            placeholder="Enter product description..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         INVENTORY
+                         HIDDEN ONLY FOR SAREES
+                    ================================================== -->
+
+                    <div
+                        id="stockSection"
+                        class="stock-section"
+                    >
+
+
+                        <div class="stock-title">
+
+                            <div>
+
+                                <p>
+                                    INVENTORY
+                                </p>
+
+                                <h3>
+                                    Size-wise Stock
+                                </h3>
+
+                            </div>
+
+
+                            <span>
+                                Enter available quantity
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- SIZE GRID -->
+
+                        <div class="size-grid">
+
+
+                            <!-- XS -->
+
+                            <div class="size-stock">
+
+                                <label for="stockXS">
+                                    XS
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stockXS"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+
+                            <!-- S -->
+
+                            <div class="size-stock">
+
+                                <label for="stockS">
+                                    S
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stockS"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+
+                            <!-- M -->
+
+                            <div class="size-stock">
+
+                                <label for="stockM">
+                                    M
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stockM"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+
+                            <!-- L -->
+
+                            <div class="size-stock">
+
+                                <label for="stockL">
+                                    L
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stockL"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+
+                            <!-- XL -->
+
+                            <div class="size-stock">
+
+                                <label for="stockXL">
+                                    XL
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stockXL"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+
+                            <!-- XXL -->
+
+                            <div class="size-stock">
+
+                                <label for="stockXXL">
+                                    XXL
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stockXXL"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+
+                            <!-- 0-3 MONTHS -->
+
+                            <div class="size-stock">
+
+                                <label for="stock0to3M">
+                                    0-3M
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stock0to3M"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+
+                            <!-- 3-6 MONTHS -->
+
+                            <div class="size-stock">
+
+                                <label for="stock3to6M">
+                                    3-6M
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stock3to6M"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+
+                            <!-- 6-12 MONTHS -->
+
+                            <div class="size-stock">
+
+                                <label for="stock6to12M">
+                                    6-12M
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stock6to12M"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+
+                            <!-- 1-2 YEARS -->
+
+                            <div class="size-stock">
+
+                                <label for="stock1to2Y">
+                                    1-2Y
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stock1to2Y"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+
+                            <!-- 2-3 YEARS -->
+
+                            <div class="size-stock">
+
+                                <label for="stock2to3Y">
+                                    2-3Y
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stock2to3Y"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+
+                            <!-- 4-5 YEARS -->
+
+                            <div class="size-stock">
+
+                                <label for="stock4to5Y">
+                                    4-5Y
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stock4to5Y"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+
+                            <!-- 6-7 YEARS -->
+
+                            <div class="size-stock">
+
+                                <label for="stock6to7Y">
+                                    6-7Y
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stock6to7Y"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+
+                            <!-- 8-9 YEARS -->
+
+                            <div class="size-stock">
+
+                                <label for="stock8to9Y">
+                                    8-9Y
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stock8to9Y"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+
+                            <!-- 10-11 YEARS -->
+
+                            <div class="size-stock">
+
+                                <label for="stock10to11Y">
+                                    10-11Y
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="stock10to11Y"
+                                    min="0"
+                                    value="0"
+                                >
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         FORM BUTTONS
+                    ================================================== -->
+
+                    <div class="form-actions">
+
+
+                        <button
+                            type="reset"
+                            id="resetProductBtn"
+                            class="cancel-btn"
+                        >
+                            Clear
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="publish-btn"
+                        >
+                            Publish Product
+                        </button>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         MESSAGE
+                    ================================================== -->
+
+                    <p
+                        id="productMessage"
+                        class="product-message"
+                    ></p>
+
+
+                </form>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PUBLISHED PRODUCTS
+            ================================================== -->
+
+            <section
+                id="products"
+                class="dashboard-section"
+            >
+
+
+                <div class="section-title">
+
+
+                    <div>
+
+                        <p>
+                            INVENTORY
+                        </p>
+
+                        <h2>
+                            Published Products
+                        </h2>
+
+                    </div>
+
+
+                    <span id="productCountText">
+                        0 Products
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- PRODUCT LIST -->
+
+                <div
+                    id="ownerProductList"
+                    class="owner-product-list"
+                >
+
+
+                    <!-- EMPTY STATE -->
+
+                    <div
+                        id="emptyProducts"
+                        class="empty-products"
+                    >
+
+                        <div class="empty-icon">
+                            📦
+                        </div>
+
+                        <h3>
+                            No Products Yet
+                        </h3>
+
+                        <p>
+                            Add your first product to
+                            display it here.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 STORE POSTS / ADS
+            ================================================== -->
+
+            <section id="posts" class="dashboard-section">
+                <div class="section-title">
+                    <div>
+                        <p>PROMOTION</p>
+                        <h2>Create Store Post / Ad</h2>
+                    </div>
+                    <span>Shows on the store side</span>
+                </div>
+
+                <form id="storePostForm" class="post-form">
+                    <div class="post-form-grid">
+                        <div class="form-group">
+                            <label for="postTitle">Post Title</label>
+                            <input id="postTitle" type="text" placeholder="Example: New Silk Products">
+                        </div>
+                        <div class="form-group">
+                            <label for="postCategory">Show In Category</label>
+                            <select id="postCategory">
+                                <option value="all" selected>All Categories</option>
+                                <option value="Women">Women</option>
+                                <option value="Men">Men</option>
+                                <option value="Kids">Kids</option>
+                                <option value="Baby">Baby</option>
+                                <option value="Sarees">Sarees</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postVideo">Advertisement Video (Maximum 30 Seconds)</label>
+                        <input id="postVideo" type="file" accept="video/*" required>
+                        <small class="post-video-help">Only videos up to 30 seconds are accepted. The video stays live until you remove it or publish another video.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postMessage">Post / Ad Message</label>
+                        <textarea id="postMessage" rows="4" placeholder="Write your offer or announcement..." required></textarea>
+                    </div>
+
+                    <div class="post-form-actions">
+                        <button type="button" id="clearPostsBtn" class="cancel-btn">Delete All Posts</button>
+                        <button type="submit" class="publish-btn">Publish Post</button>
+                    </div>
+                    <p id="postMessageStatus" class="product-message"></p>
+                </form>
+
+                <div class="section-title post-list-title">
+                    <div><p>LIVE POSTS</p><h2>Published Posts</h2></div>
+                    <span id="postCountText">0 Posts</span>
+                </div>
+                <div id="ownerPostList" class="owner-post-list">
+                    <div id="emptyPosts" class="empty-products">
+                        <div class="empty-icon">📣</div>
+                        <h3>No Posts Yet</h3>
+                        <p>Posts you publish will appear here and on the store page.</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- =================================================
+                 CUSTOMER ORDERS (from Checkout)
+            ================================================== -->
+
+            <section id="orders" class="dashboard-section">
+                <div class="section-title">
+                    <div>
+                        <p>CHECKOUT</p>
+                        <h2>Customer Orders</h2>
+                    </div>
+                    <span id="orderCountText">0 Orders</span>
+                </div>
+
+                <div id="ordersList" class="owner-post-list">
+                    <div id="emptyOrders" class="empty-products">
+                        <div class="empty-icon">🧾</div>
+                        <h3>No Orders Yet</h3>
+                        <p>Orders placed by customers at Checkout will appear here with their Order ID.</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- =================================================
+                 CONTACT MESSAGES
+            ================================================== -->
+
+            <section
+                id="messages"
+                class="dashboard-section"
+            >
+
+                <div class="section-title">
+                    <div>
+                        <p>CONTACT</p>
+                        <h2>Customer Messages</h2>
+                    </div>
+                    <span id="messageCountText">0 Messages</span>
+                </div>
+
+                <div
+                    id="contactMessagesList"
+                    class="contact-messages-list"
+                >
+                    <div id="emptyMessages" class="empty-products">
+                        <div class="empty-icon">✉️</div>
+                        <h3>No Messages Yet</h3>
+                        <p>Customer enquiries from the Contact section will appear here.</p>
+                    </div>
+                </div>
+
+            </section>
+
+
+        </main>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SAREES CONDITIONAL LOGIC
+    ====================================================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const categorySelect =
+                document.getElementById("productCategory");
+
+            const stockSection =
+                document.getElementById("stockSection");
+
+            const productForm =
+                document.getElementById("productForm");
+
+
+            /*
+             * Sarees:
+             *   Hide stock section
+             *
+             * Women / Men / Kids / Baby:
+             *   Show stock section
+             */
+
+            function updateCategoryFields() {
+
+                const category =
+                    categorySelect.value;
+
+
+                if (category === "Sarees") {
+
+                    // Hide size-wise stock
+                    stockSection.style.display = "none";
+
+
+                    // Clear all stock values
+                    const stockInputs =
+                        stockSection.querySelectorAll(
+                            'input[type="number"]'
+                        );
+
+
+                    stockInputs.forEach(function (input) {
+                        input.value = "0";
+                    });
+
+
+                } else {
+
+                    // Show size-wise stock
+                    stockSection.style.display = "";
+
+                }
+
+            }
+
+
+            // Run when category changes
+
+            categorySelect.addEventListener(
+                "change",
+                updateCategoryFields
+            );
+
+
+            // Run once when page loads
+
+            updateCategoryFields();
+
+
+
+            /*
+             * When Clear button is pressed,
+             * check category again.
+             */
+
+            if (productForm) {
+
+                productForm.addEventListener(
+                    "reset",
+                    function () {
+
+                        setTimeout(function () {
+                            updateCategoryFields();
+                        }, 0);
+
+                    }
+                );
+
+            }
+
+        });
+
+    </script>
+
+
+
+    <!-- =====================================================
+         OWNER JAVASCRIPT
+    ====================================================== -->
+
+    <script src="owner.js"></script>
+
+
+</body>
+
+</html>
